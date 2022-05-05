@@ -6,6 +6,12 @@ const cityElem = document.querySelector('#city');
 const salaryElem = document.querySelector('#salary');
 const tableBody = document.querySelector('#tableBody');
 
+
+const saveButton = document.querySelector('#saveButton');
+const editNameElem = document.querySelector('#nameEdit');
+const editCityElem = document.querySelector('#cityEdit');
+const editSalaryElem = document.querySelector('#salaryEdit');
+
 var currentTr = null;
 
 addButton.addEventListener('click', () => {
@@ -77,7 +83,7 @@ function setDelEvent(button, id) {
         delEmployee(id);
 
         // stores tr element with the clicked delbutton in it
-        currentTr = delButton.parentElement.parentElement
+        currentTr = button.parentElement.parentElement
 
         // remove row from table
         currentTr.parentNode.removeChild(currentTr)
@@ -104,9 +110,9 @@ function addEmployee(name, city, salary) {
         console.log(res)
     })
 
-    nameElem.innerHTML = ""
-    cityElem.innerHTML = ""
-    salaryElem.innerHTML = ""
+    nameElem.value = ""
+    cityElem.value = ""
+    salaryElem.value = ""
 
     getEmployees()
 }
@@ -118,13 +124,27 @@ function delEmployee(id) {
   fetch(`${host}/${endpoint}`, {
     method: "DELETE"
   }).then(
-    console.log("OK")
+    console.log("record deleted")
   )
 }
 
 function setEditEvent(button, employee) {
   // delButton.setAttribute('data-id', id);
   button.addEventListener('click', () => {
-    console.log(employee.name);
+    console.log(employee.name)
+
+    editNameElem.value = employee.name
+    editCityElem.value = employee.city
+    editSalaryElem.value = employee.salary
+
+    currentTr = button.parentElement.parentElement
   })
 }
+
+saveButton.addEventListener('click', () => {
+  console.log("Mentek")
+
+  currentTr.childNodes[1].textContent = editNameElem.value
+  currentTr.childNodes[2].textContent = editCityElem.value
+  currentTr.childNodes[3].textContent = editSalaryElem.value
+})

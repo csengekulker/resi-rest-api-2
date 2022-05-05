@@ -29,18 +29,6 @@
       "city": "Bicske",
       "salary": "238",
       "id": 5
-    },
-    {
-      "name": "Én",
-      "city": "Itt",
-      "salary": "123",
-      "id": 6
-    },
-    {
-      "name": "aaa",
-      "city": "bbb",
-      "salary": "1111",
-      "id": 7
     }
   ]
 }

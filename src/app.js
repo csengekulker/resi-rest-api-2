@@ -142,7 +142,7 @@ function updateEmployee(id, name, city, salary) {
       salary: salary
     })
     
-  })
+  }).then(res => res.json()).then(res => console.log("Frissítve"))
 }
 
 function setEditEvent(button, employee) {

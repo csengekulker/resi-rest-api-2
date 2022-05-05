@@ -13,6 +13,8 @@ addButton.addEventListener('click', () => {
     const city = cityElem.value;
     const salary = salaryElem.value;
     addEmployee(name, city, salary);
+
+
 });
 
 getEmployees();
@@ -43,18 +45,17 @@ function renderEmployees(employees) {
         let tdDelete = document.createElement('td');
         let delButton = document.createElement('button');
         delButton.textContent = 'Törlés';
-        setEvent(delButton, employee.id);
+        setDelEvent(delButton, employee.id);
         tdDelete.appendChild(delButton);
 
         // update
         let tdEdit = document.createElement('td')
         let editButton = document.createElement('button');
         editButton.textContent = 'Szerkesztés';
-
+        setEditEvent(editButton, employee)
         tdEdit.appendChild(editButton)
 
-        
-
+    
         tableBody.appendChild(tr);
         tr.appendChild(tdId);
         tr.appendChild(tdName);
@@ -69,9 +70,9 @@ function renderEmployees(employees) {
     });
 }
 
-function setEvent(delButton, id) {
+function setDelEvent(button, id) {
     // delButton.setAttribute('data-id', id);
-    delButton.addEventListener('click', () => {
+    button.addEventListener('click', () => {
 
         delEmployee(id);
 
@@ -82,6 +83,7 @@ function setEvent(delButton, id) {
         currentTr.parentNode.removeChild(currentTr)
     });
 }
+
 
 function addEmployee(name, city, salary) {
 
@@ -99,8 +101,12 @@ function addEmployee(name, city, salary) {
     })
     .then(res => res.json())
     .then(res => {
-        console.log(res);
-    });
+        console.log(res)
+    })
+
+    nameElem.innerHTML = ""
+    cityElem.innerHTML = ""
+    salaryElem.innerHTML = ""
 
     getEmployees()
 }
@@ -114,4 +120,11 @@ function delEmployee(id) {
   }).then(
     console.log("OK")
   )
+}
+
+function setEditEvent(button, employee) {
+  // delButton.setAttribute('data-id', id);
+  button.addEventListener('click', () => {
+    console.log(employee.name);
+  })
 }

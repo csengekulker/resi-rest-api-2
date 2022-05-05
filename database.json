@@ -47,18 +47,6 @@
       "city": "Érd",
       "salary": "123",
       "id": 8
-    },
-    {
-      "fullName": "Va Laki",
-      "city": "Budapest",
-      "salary": 3000,
-      "id": 9
-    },
-    {
-      "fullName": "Va Laki",
-      "city": "Budapest",
-      "salary": 3000,
-      "id": 10
     }
   ]
 }

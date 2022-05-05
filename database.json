@@ -41,6 +41,24 @@
       "city": "Hatvan",
       "salary": "310",
       "id": 7
+    },
+    {
+      "name": "Béla",
+      "city": "Érd",
+      "salary": "123",
+      "id": 8
+    },
+    {
+      "fullName": "Va Laki",
+      "city": "Budapest",
+      "salary": 3000,
+      "id": 9
+    },
+    {
+      "fullName": "Va Laki",
+      "city": "Budapest",
+      "salary": 3000,
+      "id": 10
     }
   ]
 }

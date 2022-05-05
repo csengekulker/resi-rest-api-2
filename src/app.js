@@ -124,8 +124,25 @@ function delEmployee(id) {
   fetch(`${host}/${endpoint}`, {
     method: "DELETE"
   }).then(
-    console.log("record deleted")
+    console.log("Törölve")
   )
+}
+
+function updateEmployee(id, name, city, salary) {
+  let endpoint = `employees/${id}`
+
+  fetch(`${host}/${endpoint}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      name: name,
+      city: city,
+      salary: salary
+    })
+    
+  })
 }
 
 function setEditEvent(button, employee) {
@@ -142,9 +159,21 @@ function setEditEvent(button, employee) {
 }
 
 saveButton.addEventListener('click', () => {
-  console.log("Mentek")
+  let id = currentTr.childNodes[0].textContent
 
   currentTr.childNodes[1].textContent = editNameElem.value
   currentTr.childNodes[2].textContent = editCityElem.value
   currentTr.childNodes[3].textContent = editSalaryElem.value
+
+  //save to db
+  updateEmployee(
+    id,
+    editNameElem.value,
+    editCityElem.value,
+    editSalaryElem.value
+  )
+
+  editNameElem.value = ""
+  editCityElem.value = ""
+  editSalaryElem.value = ""
 })

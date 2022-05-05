@@ -19,11 +19,13 @@ getEmployees();
 
 function getEmployees() {
 
+  //delete existing table before render
+  tableBody.innerHTML = ''
+
   let endpoint = 'employees'
     fetch(`${host}/${endpoint}`)
     .then(res => res.json())
     .then(res => {
-        // console.log(res);
         renderEmployees(res);
     });
 }
@@ -52,7 +54,6 @@ function renderEmployees(employees) {
         tdName.textContent = employee.name;
         tdCity.textContent = employee.city;
         tdSalary.textContent = employee.salary;
-        // console.log(employee.city);
     });
 }
 
@@ -88,14 +89,13 @@ function addEmployee(name, city, salary) {
     .then(res => {
         console.log(res);
     });
+
+    getEmployees()
 }
 
 function delEmployee(id) {
 
   let endpoint = `employees/${id}`
-  // console.log(delButton.dataset.id);
-  // console.log(id);
-  // console.log(`${url}/${id}`);
 
   fetch(`${host}/${endpoint}`, {
     method: "DELETE"

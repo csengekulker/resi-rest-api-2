@@ -25,9 +25,9 @@
       "id": 4
     },
     {
-      "name": "Laki László",
-      "city": "Szeged",
-      "salary": 357,
+      "name": "AAA",
+      "city": "BBBB",
+      "salary": "123",
       "id": 5
     }
   ]

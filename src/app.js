@@ -1,5 +1,5 @@
 
-const url = 'http://localhost:3000/employees';
+const host = 'http://localhost:3000';
 const addButton = document.querySelector('#addButton');
 const nameElem = document.querySelector('#name');
 const cityElem = document.querySelector('#city');
@@ -18,7 +18,9 @@ addButton.addEventListener('click', () => {
 getEmployees();
 
 function getEmployees() {
-    fetch(url)
+
+  let endpoint = 'employees'
+    fetch(`${host}/${endpoint}`)
     .then(res => res.json())
     .then(res => {
         // console.log(res);
@@ -58,7 +60,6 @@ function setEvent(delButton, id) {
     // delButton.setAttribute('data-id', id);
     delButton.addEventListener('click', () => {
 
-
         delEmployee(id);
 
         // stores tr element with the clicked delbutton in it
@@ -70,8 +71,10 @@ function setEvent(delButton, id) {
 }
 
 function addEmployee(name, city, salary) {
-    fetch(url, {
-        method: "post",
+
+  let endpoint = 'employees'
+    fetch(`${host}/${endpoint}`, {
+        method: "POST",
         body: JSON.stringify({
             name: name,
             city: city,
@@ -88,11 +91,13 @@ function addEmployee(name, city, salary) {
 }
 
 function delEmployee(id) {
-  // console.log(delButton.dataset.id);
-  console.log(id);
-  console.log(`${url}/${id}`);
 
-  fetch(`${url}/${id}`, {
+  let endpoint = `employees/${id}`
+  // console.log(delButton.dataset.id);
+  // console.log(id);
+  // console.log(`${url}/${id}`);
+
+  fetch(`${host}/${endpoint}`, {
     method: "DELETE"
   }).then(
     console.log("OK")

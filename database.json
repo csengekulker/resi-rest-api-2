@@ -1,0 +1,46 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "Teknős Ernő",
+      "city": "Szeged",
+      "salary": 387
+    },
+    {
+      "id": 2,
+      "name": "Fa Aranka",
+      "city": "Szolnok",
+      "salary": 350
+    },
+    {
+      "id": 3,
+      "name": "Terep Mihály",
+      "city": "Szeged",
+      "salary": 349
+    },
+    {
+      "name": "Terem Béla",
+      "city": "Szolnok",
+      "salary": 362,
+      "id": 4
+    },
+    {
+      "name": "Laki László",
+      "city": "Szeged",
+      "salary": 357,
+      "id": 5
+    },
+    {
+      "name": "Ali Béla",
+      "city": "Szeged",
+      "salary": 371,
+      "id": 6
+    },
+    {
+      "name": "Porka Ede",
+      "city": "Hatvan",
+      "salary": "310",
+      "id": 7
+    }
+  ]
+}

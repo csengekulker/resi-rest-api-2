@@ -57,8 +57,9 @@ function renderEmployees(employees) {
 function setEvent(delButton, id) {
     // delButton.setAttribute('data-id', id);
     delButton.addEventListener('click', () => {
-        // console.log(delButton.dataset.id);
-        console.log(id);
+
+
+        delEmployee(id);
 
         // stores tr element with the clicked delbutton in it
         currentTr = delButton.parentElement.parentElement
@@ -84,4 +85,16 @@ function addEmployee(name, city, salary) {
     .then(res => {
         console.log(res);
     });
+}
+
+function delEmployee(id) {
+  // console.log(delButton.dataset.id);
+  console.log(id);
+  console.log(`${url}/${id}`);
+
+  fetch(`${url}/${id}`, {
+    method: "DELETE"
+  }).then(
+    console.log("OK")
+  )
 }

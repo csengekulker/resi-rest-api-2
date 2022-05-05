@@ -38,11 +38,22 @@ function renderEmployees(employees) {
         let tdCity = document.createElement('td');
         let tdSalary = document.createElement('td');
 
+        //delete
+
         let tdDelete = document.createElement('td');
         let delButton = document.createElement('button');
         delButton.textContent = 'Törlés';
         setEvent(delButton, employee.id);
         tdDelete.appendChild(delButton);
+
+        // update
+        let tdEdit = document.createElement('td')
+        let editButton = document.createElement('button');
+        editButton.textContent = 'Szerkesztés';
+
+        tdEdit.appendChild(editButton)
+
+        
 
         tableBody.appendChild(tr);
         tr.appendChild(tdId);
@@ -50,6 +61,7 @@ function renderEmployees(employees) {
         tr.appendChild(tdCity);
         tr.appendChild(tdSalary);
         tr.appendChild(tdDelete);
+        tr.appendChild(tdEdit)
         tdId.textContent = employee.id;
         tdName.textContent = employee.name;
         tdCity.textContent = employee.city;

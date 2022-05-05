@@ -23,12 +23,6 @@
       "city": "Szolnok",
       "salary": 362,
       "id": 4
-    },
-    {
-      "name": "AAA",
-      "city": "BBBB",
-      "salary": "123",
-      "id": 5
     }
   ]
 }

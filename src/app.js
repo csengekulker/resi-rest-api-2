@@ -1,24 +1,24 @@
 
 const host = 'http://localhost:3000';
-const addButton = document.querySelector('#addButton');
-const nameElem = document.querySelector('#name');
-const cityElem = document.querySelector('#city');
-const salaryElem = document.querySelector('#salary');
-const tableBody = document.querySelector('#tableBody');
+const addButton = document.querySelector('#addButton')
+const nameElem = document.querySelector('#name')
+const cityElem = document.querySelector('#city')
+const salaryElem = document.querySelector('#salary')
+const tableBody = document.querySelector('#tableBody')
 
 
-const saveButton = document.querySelector('#saveButton');
-const editNameElem = document.querySelector('#nameEdit');
-const editCityElem = document.querySelector('#cityEdit');
-const editSalaryElem = document.querySelector('#salaryEdit');
+const saveButton = document.querySelector('#saveButton')
+const editNameElem = document.querySelector('#nameEdit')
+const editCityElem = document.querySelector('#cityEdit')
+const editSalaryElem = document.querySelector('#salaryEdit')
 
 var currentTr = null;
 
 addButton.addEventListener('click', () => {
-    const name = nameElem.value;
-    const city = cityElem.value;
-    const salary = salaryElem.value;
-    addEmployee(name, city, salary);
+    const name = nameElem.value
+    const city = cityElem.value
+    const salary = salaryElem.value
+    addEmployee(name, city, salary)
 
 
 });
@@ -40,39 +40,41 @@ function getEmployees() {
 
 function renderEmployees(employees) {
     employees.forEach( employee => {
-        let tr = document.createElement('tr');
-        let tdId = document.createElement('td');
-        let tdName = document.createElement('td');
-        let tdCity = document.createElement('td');
-        let tdSalary = document.createElement('td');
+        let tr = document.createElement('tr')
+        let tdId = document.createElement('td')
+        let tdName = document.createElement('td')
+        let tdCity = document.createElement('td')
+        let tdSalary = document.createElement('td')
 
         //delete
 
-        let tdDelete = document.createElement('td');
-        let delButton = document.createElement('button');
-        delButton.textContent = 'Törlés';
-        setDelEvent(delButton, employee.id);
-        tdDelete.appendChild(delButton);
+        let tdDelete = document.createElement('td')
+        let delButton = document.createElement('button')
+        delButton.className = "btn btn-danger"
+        delButton.innerHTML = '<i class="bi bi-trash3-fill"></i>'
+        setDelEvent(delButton, employee.id)
+        tdDelete.appendChild(delButton)
 
         // update
         let tdEdit = document.createElement('td')
-        let editButton = document.createElement('button');
-        editButton.textContent = 'Szerkesztés';
+        let editButton = document.createElement('button')
+        editButton.className = "btn btn-secondary"
+        editButton.innerHTML = '<i class="bi bi-pencil-fill"></i>'
         setEditEvent(editButton, employee)
         tdEdit.appendChild(editButton)
 
     
-        tableBody.appendChild(tr);
-        tr.appendChild(tdId);
-        tr.appendChild(tdName);
-        tr.appendChild(tdCity);
-        tr.appendChild(tdSalary);
-        tr.appendChild(tdDelete);
+        tableBody.appendChild(tr)
+        tr.appendChild(tdId)
+        tr.appendChild(tdName)
+        tr.appendChild(tdCity)
+        tr.appendChild(tdSalary)
         tr.appendChild(tdEdit)
-        tdId.textContent = employee.id;
-        tdName.textContent = employee.name;
-        tdCity.textContent = employee.city;
-        tdSalary.textContent = employee.salary;
+        tr.appendChild(tdDelete)
+        tdId.textContent = employee.id
+        tdName.textContent = employee.name
+        tdCity.textContent = employee.city
+        tdSalary.textContent = employee.salary
     });
 }
 

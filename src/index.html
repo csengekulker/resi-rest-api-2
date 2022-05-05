@@ -4,60 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resi</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap-icons.css">
+    <script src="js/bootstrap.js"></script>
 
 </head>
 <body>
-    <h1>Resi</h1>
-    <div class="addForm">
+    <div class="container">
+      <h1>Resi</h1>
+      <div class="addForm">
+          <div>
+              <label for="name">Név</label>
+              <input type="text" id="name">
+          </div>
+          <div>
+              <label for="city">Település</label>
+              <input type="text" id="city">
+          </div>
+          <div>
+              <label for="salary">Fizetés</label>
+              <input type="text" id="salary">
+          </div>
+          <button type="button" id="addButton">
+              Hozzáad
+          </button>
+      </div>
+
+
+      <table class="table table-striped">
+          <thead>
+              <tr>
+                  <th>Id</th>
+                  <th>Név</th>
+                  <th>Település</th>
+                  <th>Fizetés</th>
+              </tr>
+          </thead>
+          <tbody id="tableBody">
+          </tbody>
+      </table>
+
+
+      <div class="editForm">
         <div>
-            <label for="name">Név</label>
-            <input type="text" id="name">
+            <label for="nameEdit">Név</label>
+            <input type="text" id="nameEdit">
         </div>
         <div>
-            <label for="city">Település</label>
-            <input type="text" id="city">
+            <label for="cityEdit">Település</label>
+            <input type="text" id="cityEdit">
         </div>
         <div>
-            <label for="salary">Fizetés</label>
-            <input type="text" id="salary">
+            <label for="salaryEdit">Fizetés</label>
+            <input type="text" id="salaryEdit">
         </div>
-        <button type="button" id="addButton">
-            Hozzáad
+        <button type="button" id="saveButton">
+            Mentés
         </button>
+        </div>
     </div>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Név</th>
-                <th>Település</th>
-                <th>Fizetés</th>
-            </tr>
-        </thead>
-        <tbody id="tableBody">
-
-        </tbody>
-    </table>
-
-
-    <div class="editForm">
-      <div>
-          <label for="nameEdit">Név</label>
-          <input type="text" id="nameEdit">
-      </div>
-      <div>
-          <label for="cityEdit">Település</label>
-          <input type="text" id="cityEdit">
-      </div>
-      <div>
-          <label for="salaryEdit">Fizetés</label>
-          <input type="text" id="salaryEdit">
-      </div>
-      <button type="button" id="saveButton">
-          Mentés
-      </button>
-  </div>
 
 
   <script src="app.js"></script>

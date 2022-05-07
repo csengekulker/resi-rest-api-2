@@ -12,20 +12,20 @@
 <body>
     <div class="container">
       <h1>Resi</h1>
-      <div class="addForm">
-          <div>
-              <label for="name">Név</label>
-              <input type="text" id="name">
+      <div class="addForm row form-floating">
+          <div class="col">
+              <label for="name" class="form-label">Név</label>
+              <input type="text" id="name" class="form-control">
           </div>
-          <div>
-              <label for="city">Település</label>
-              <input type="text" id="city">
+          <div class="col">
+              <label for="city" class="form-label">Település</label>
+              <input type="text" id="city" class="form-control">
           </div>
-          <div>
-              <label for="salary">Fizetés</label>
-              <input type="text" id="salary">
+          <div class="mb-2 col">
+              <label for="salary" class="form-label">Fizetés</label>
+              <input type="text" id="salary" class="form-control">
           </div>
-          <button type="button" id="addButton">
+          <button type="button" id="addButton" class="btn btn-secondary">
               Hozzáad
           </button>
       </div>
@@ -45,20 +45,20 @@
       </table>
 
 
-      <div class="editForm">
-        <div>
-            <label for="nameEdit">Név</label>
-            <input type="text" id="nameEdit">
+      <div class="editForm row invisible">
+        <div class="col">
+            <label for="nameEdit" class="form-label">Név</label>
+            <input type="text" id="nameEdit" class="form-control">
         </div>
-        <div>
-            <label for="cityEdit">Település</label>
-            <input type="text" id="cityEdit">
+        <div class="col">
+            <label for="cityEdit" class="form-label" >Település</label>
+            <input type="text" id="cityEdit" class="form-control">
         </div>
-        <div>
-            <label for="salaryEdit">Fizetés</label>
-            <input type="text" id="salaryEdit">
+        <div class="mb-2 col">
+            <label for="salaryEdit" class="form-label">Fizetés</label>
+            <input type="text" id="salaryEdit" class="form-control">
         </div>
-        <button type="button" id="saveButton">
+        <button type="button" id="saveButton" class="btn btn-secondary">
             Mentés
         </button>
         </div>

@@ -6,7 +6,7 @@ const cityElem = document.querySelector('#city')
 const salaryElem = document.querySelector('#salary')
 const tableBody = document.querySelector('#tableBody')
 
-
+const editForm = document.querySelector(".editForm")
 const saveButton = document.querySelector('#saveButton')
 const editNameElem = document.querySelector('#nameEdit')
 const editCityElem = document.querySelector('#cityEdit')
@@ -152,6 +152,16 @@ function setEditEvent(button, employee) {
   button.addEventListener('click', () => {
     console.log(employee.name)
 
+    console.log(editForm)
+    if (editForm.classList.contains("invisible")) {
+      editForm.classList.remove("invisible")
+      editForm.classList.add("visible")
+    } else {
+      editForm.classList.remove("visible")
+      editForm.classList.add("invisible")
+    }
+
+
     editNameElem.value = employee.name
     editCityElem.value = employee.city
     editSalaryElem.value = employee.salary
@@ -166,6 +176,9 @@ saveButton.addEventListener('click', () => {
   currentTr.childNodes[1].textContent = editNameElem.value
   currentTr.childNodes[2].textContent = editCityElem.value
   currentTr.childNodes[3].textContent = editSalaryElem.value
+
+  editForm.classList.remove("visible")
+  editForm.classList.add("invisible")
 
   //save to db
   updateEmployee(

@@ -1,5 +1,5 @@
 
-const host = 'http://localhost:3000';
+let host = 'http://localhost:3000';
 const addButton = document.querySelector('#addButton')
 const nameElem = document.querySelector('#name')
 const cityElem = document.querySelector('#city')
@@ -14,16 +14,45 @@ const editSalaryElem = document.querySelector('#salaryEdit')
 
 var currentTr = null;
 
-addButton.addEventListener('click', () => {
-    const name = nameElem.value
-    const city = cityElem.value
-    const salary = salaryElem.value
-    addEmployee(name, city, salary)
+function renderEmployees(employees) {
+  employees.forEach( employee => {
+      let tr = document.createElement('tr')
+      let tdId = document.createElement('td')
+      let tdName = document.createElement('td')
+      let tdCity = document.createElement('td')
+      let tdSalary = document.createElement('td')
 
+      //delete
 
-});
+      let tdDelete = document.createElement('td')
+      let delButton = document.createElement('button')
+      delButton.className = "btn btn-danger"
+      delButton.innerHTML = '<i class="bi bi-trash3-fill"></i>'
+      setDelEvent(delButton, employee.id)
+      tdDelete.appendChild(delButton)
 
-getEmployees();
+      // update
+      let tdEdit = document.createElement('td')
+      let editButton = document.createElement('button')
+      editButton.className = "btn btn-secondary"
+      editButton.innerHTML = '<i class="bi bi-pencil-fill"></i>'
+      setEditEvent(editButton, employee)
+      tdEdit.appendChild(editButton)
+
+  
+      tableBody.appendChild(tr)
+      tr.appendChild(tdId)
+      tr.appendChild(tdName)
+      tr.appendChild(tdCity)
+      tr.appendChild(tdSalary)
+      tr.appendChild(tdEdit)
+      tr.appendChild(tdDelete)
+      tdId.textContent = employee.id
+      tdName.textContent = employee.name
+      tdCity.textContent = employee.city
+      tdSalary.textContent = employee.salary
+  });
+}
 
 function getEmployees() {
 
@@ -38,59 +67,11 @@ function getEmployees() {
     });
 }
 
-function renderEmployees(employees) {
-    employees.forEach( employee => {
-        let tr = document.createElement('tr')
-        let tdId = document.createElement('td')
-        let tdName = document.createElement('td')
-        let tdCity = document.createElement('td')
-        let tdSalary = document.createElement('td')
 
-        //delete
+getEmployees()
 
-        let tdDelete = document.createElement('td')
-        let delButton = document.createElement('button')
-        delButton.className = "btn btn-danger"
-        delButton.innerHTML = '<i class="bi bi-trash3-fill"></i>'
-        setDelEvent(delButton, employee.id)
-        tdDelete.appendChild(delButton)
 
-        // update
-        let tdEdit = document.createElement('td')
-        let editButton = document.createElement('button')
-        editButton.className = "btn btn-secondary"
-        editButton.innerHTML = '<i class="bi bi-pencil-fill"></i>'
-        setEditEvent(editButton, employee)
-        tdEdit.appendChild(editButton)
-
-    
-        tableBody.appendChild(tr)
-        tr.appendChild(tdId)
-        tr.appendChild(tdName)
-        tr.appendChild(tdCity)
-        tr.appendChild(tdSalary)
-        tr.appendChild(tdEdit)
-        tr.appendChild(tdDelete)
-        tdId.textContent = employee.id
-        tdName.textContent = employee.name
-        tdCity.textContent = employee.city
-        tdSalary.textContent = employee.salary
-    });
-}
-
-function setDelEvent(button, id) {
-    // delButton.setAttribute('data-id', id);
-    button.addEventListener('click', () => {
-
-        delEmployee(id);
-
-        // stores tr element with the clicked delbutton in it
-        currentTr = button.parentElement.parentElement
-
-        // remove row from table
-        currentTr.parentNode.removeChild(currentTr)
-    });
-}
+//add
 
 
 function addEmployee(name, city, salary) {
@@ -119,6 +100,8 @@ function addEmployee(name, city, salary) {
     getEmployees()
 }
 
+//delete
+
 function delEmployee(id) {
 
   let endpoint = `employees/${id}`
@@ -129,6 +112,8 @@ function delEmployee(id) {
     console.log("Törölve")
   )
 }
+
+//update
 
 function updateEmployee(id, name, city, salary) {
   let endpoint = `employees/${id}`
@@ -147,12 +132,28 @@ function updateEmployee(id, name, city, salary) {
   }).then(res => res.json()).then(res => console.log("Frissítve"))
 }
 
+
+
+
+function setDelEvent(button, id) {
+  // delButton.setAttribute('data-id', id);
+  button.addEventListener('click', () => {
+
+      delEmployee(id);
+
+      // stores tr element with the clicked delbutton in it
+      currentTr = button.parentElement.parentElement
+
+      // remove row from table
+      currentTr.parentNode.removeChild(currentTr)
+  });
+}
+
+
 function setEditEvent(button, employee) {
   // delButton.setAttribute('data-id', id);
   button.addEventListener('click', () => {
-    console.log(employee.name)
 
-    console.log(editForm)
     if (editForm.classList.contains("invisible")) {
       editForm.classList.remove("invisible")
       editForm.classList.add("visible")
@@ -169,6 +170,15 @@ function setEditEvent(button, employee) {
     currentTr = button.parentElement.parentElement
   })
 }
+
+addButton.addEventListener('click', () => {
+    const name = nameElem.value
+    const city = cityElem.value
+    const salary = salaryElem.value
+    addEmployee(name, city, salary)
+
+
+});
 
 saveButton.addEventListener('click', () => {
   let id = currentTr.childNodes[0].textContent

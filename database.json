@@ -1,58 +1,22 @@
 {
   "employees": [
     {
-      "name": "Teknős Ernő",
+      "name": "Béla",
       "city": "Szolnok",
-      "salary": "387",
+      "salary": "563453",
       "id": 1
     },
     {
-      "name": "Fa Aranka",
+      "name": "Ernyős Valér",
       "city": "Szolnok",
-      "salary": "35134",
+      "salary": "563453",
       "id": 2
     },
     {
-      "name": "Terep Mihály",
-      "city": "Szeged",
-      "salary": "349123",
-      "id": 3
-    },
-    {
-      "name": "Terem Béla",
-      "city": "Szolnok",
-      "salary": "3621231",
-      "id": 4
-    },
-    {
-      "name": "Ernyős Valér",
-      "city": "Szolnok",
-      "salary": "563453",
-      "id": 5
-    },
-    {
       "name": "Béla",
-      "city": "Érd",
-      "salary": "1234",
-      "id": 6
-    },
-    {
-      "name": "Csenge",
-      "city": "Érd",
-      "salary": "123455",
-      "id": 7
-    },
-    {
-      "name": "Csenge",
-      "city": "Érd",
-      "salary": "563453",
-      "id": 8
-    },
-    {
-      "name": "Ernyős Valér",
-      "city": "Barnabás",
-      "salary": "1234",
-      "id": 9
+      "city": "Szolnok",
+      "salary": "123456",
+      "id": 3
     }
   ]
 }

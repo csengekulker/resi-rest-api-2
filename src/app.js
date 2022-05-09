@@ -12,11 +12,14 @@ const editNameElem = document.querySelector('#nameEdit')
 const editCityElem = document.querySelector('#cityEdit')
 const editSalaryElem = document.querySelector('#salaryEdit')
 
+const confirmDelButton = document.querySelector('#confirmDelButton')
+
 var currentTr = null;
 
 function renderEmployees(employees) {
   employees.forEach( employee => {
     let tr = document.createElement('tr')
+    tr.id = employee.id
     let tdId = document.createElement('td')
     let tdName = document.createElement('td')
     let tdCity = document.createElement('td')
@@ -28,7 +31,13 @@ function renderEmployees(employees) {
     let delButton = document.createElement('button')
     delButton.className = "btn btn-danger"
     delButton.innerHTML = '<i class="bi bi-trash3-fill"></i>'
-    setDelEvent(delButton, employee.id)
+
+    delButton.addEventListener('click', () => {
+      setDelEvent(confirmDelButton, employee.id)
+    })
+
+    delButton.setAttribute('data-bs-toggle', 'modal')
+    delButton.setAttribute('data-bs-target', '#confirmDeletionModal')
     tdDelete.appendChild(delButton)
 
     // edit
@@ -43,6 +52,7 @@ function renderEmployees(employees) {
 
     setEditEvent(editButton, employee)
     tdEdit.appendChild(editButton)
+
 
     tableBody.appendChild(tr)
     tr.appendChild(tdId)
@@ -137,13 +147,11 @@ function setDelEvent(button, id) {
   // delButton.setAttribute('data-id', id);
   button.addEventListener('click', () => {
 
-      delEmployee(id);
+      currentTr = document.getElementById(id)
 
-      // stores tr element with the clicked delbutton in it
-      currentTr = button.parentElement.parentElement
+      delEmployee(id)
+      currentTr.remove()
 
-      // remove row from table
-      currentTr.parentNode.removeChild(currentTr)
   });
 }
 
@@ -155,6 +163,8 @@ function setEditEvent(button, employee) {
     editNameElem.value = employee.name
     editCityElem.value = employee.city
     editSalaryElem.value = employee.salary
+
+    console.log("Lefut a setEditEvent");
 
     currentTr = button.parentElement.parentElement
   })

@@ -25,16 +25,22 @@
       "id": 4
     },
     {
-      "name": "Nagy Béla",
-      "city": "Bicske",
-      "salary": "238",
+      "name": "Ernyős Valér",
+      "city": "Szolnok",
+      "salary": "563453",
       "id": 5
     },
     {
-      "name": "Ernyős Valér",
-      "city": "Barnabás",
+      "name": "Béla",
+      "city": "Érd",
       "salary": "1234",
       "id": 6
+    },
+    {
+      "name": "Csenge",
+      "city": "Érd",
+      "salary": "123455",
+      "id": 7
     }
   ]
 }

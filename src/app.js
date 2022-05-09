@@ -11,6 +11,13 @@ const saveButton = document.querySelector('#saveButton')
 const editNameElem = document.querySelector('#nameEdit')
 const editCityElem = document.querySelector('#cityEdit')
 const editSalaryElem = document.querySelector('#salaryEdit')
+const addModal = document.querySelector('#addModal')
+
+
+// const editButtons = document.querySelectorAll('.editButton')
+// editButton.setAttribute('data-bs-toggle', 'modal')
+// editButton.setAttribute('data-bs-target', 'editModal')
+// editButton.setAttribute('type', 'button')
 
 var currentTr = null;
 
@@ -36,6 +43,7 @@ function renderEmployees(employees) {
       let editButton = document.createElement('button')
       editButton.className = "btn btn-secondary"
       editButton.innerHTML = '<i class="bi bi-pencil-fill"></i>'
+
       setEditEvent(editButton, employee)
       tdEdit.appendChild(editButton)
 
@@ -91,13 +99,16 @@ function addEmployee(name, city, salary) {
     .then(res => res.json())
     .then(res => {
         console.log(res)
+        getEmployees()
+
+        nameElem.value = ""
+        cityElem.value = ""
+        salaryElem.value = ""
     })
 
-    nameElem.value = ""
-    cityElem.value = ""
-    salaryElem.value = ""
+    // console.log("getEmployees");
 
-    getEmployees()
+
 }
 
 //delete
@@ -167,7 +178,6 @@ addButton.addEventListener('click', () => {
     const city = cityElem.value
     const salary = salaryElem.value
     addEmployee(name, city, salary)
-
 
 });
 

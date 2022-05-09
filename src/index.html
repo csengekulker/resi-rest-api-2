@@ -12,23 +12,11 @@
 <body>
     <div class="container">
       <h1>Resi</h1>
-      <div class="addForm row form-floating">
-          <div class="col">
-              <label for="name" class="form-label">Név</label>
-              <input type="text" id="name" class="form-control">
-          </div>
-          <div class="col">
-              <label for="city" class="form-label">Település</label>
-              <input type="text" id="city" class="form-control">
-          </div>
-          <div class="mb-2 col">
-              <label for="salary" class="form-label">Fizetés</label>
-              <input type="text" id="salary" class="form-control">
-          </div>
-          <button type="button" id="addButton" class="btn btn-secondary">
-              Hozzáad
-          </button>
-      </div>
+
+              <!-- Button trigger modal -->
+      <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#addModal">
+        Új dolgozó felvétele
+      </button>
 
 
       <table class="table table-striped">
@@ -44,8 +32,8 @@
           </tbody>
       </table>
 
-
-      <div class="editForm row invisible">
+      <div class="editForm row">
+        <h4>Dolgozó adatainak módosítása</h4>
         <div class="col">
             <label for="nameEdit" class="form-label">Név</label>
             <input type="text" id="nameEdit" class="form-control">
@@ -62,6 +50,48 @@
             Mentés
         </button>
         </div>
+    </div>
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Új dolgozó felvétele</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="addForm row form-floating">
+              <div class="col">
+                  <label for="name" class="form-label">Név</label>
+                  <input type="text" id="name" class="form-control">
+              </div>
+              <div class="col">
+                  <label for="city" class="form-label">Település</label>
+                  <input type="text" id="city" class="form-control">
+              </div>
+              <div class="mb-2 col">
+                  <label for="salary" class="form-label">Fizetés</label>
+                  <input type="text" id="salary" class="form-control">
+              </div>
+                <!-- <button 
+                  type="button" 
+                  class="btn btn-secondary"  
+                  data-bs-toggle="modal" 
+                  data-bs-target="#addModal">
+                    Hozzáad
+                </button> -->
+          </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezárás</button>
+            <button type="button" id="addButton" class="btn btn-primary">Dolgozó felvétele</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="app.js"></script>

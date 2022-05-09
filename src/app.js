@@ -154,15 +154,6 @@ function setEditEvent(button, employee) {
   // delButton.setAttribute('data-id', id);
   button.addEventListener('click', () => {
 
-    if (editForm.classList.contains("invisible")) {
-      editForm.classList.remove("invisible")
-      editForm.classList.add("visible")
-    } else {
-      editForm.classList.remove("visible")
-      editForm.classList.add("invisible")
-    }
-
-
     editNameElem.value = employee.name
     editCityElem.value = employee.city
     editSalaryElem.value = employee.salary

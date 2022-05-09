@@ -11,60 +11,56 @@ const saveButton = document.querySelector('#saveButton')
 const editNameElem = document.querySelector('#nameEdit')
 const editCityElem = document.querySelector('#cityEdit')
 const editSalaryElem = document.querySelector('#salaryEdit')
-const addModal = document.querySelector('#addModal')
-
-
-// const editButtons = document.querySelectorAll('.editButton')
-// editButton.setAttribute('data-bs-toggle', 'modal')
-// editButton.setAttribute('data-bs-target', 'editModal')
-// editButton.setAttribute('type', 'button')
 
 var currentTr = null;
 
 function renderEmployees(employees) {
   employees.forEach( employee => {
-      let tr = document.createElement('tr')
-      let tdId = document.createElement('td')
-      let tdName = document.createElement('td')
-      let tdCity = document.createElement('td')
-      let tdSalary = document.createElement('td')
+    let tr = document.createElement('tr')
+    let tdId = document.createElement('td')
+    let tdName = document.createElement('td')
+    let tdCity = document.createElement('td')
+    let tdSalary = document.createElement('td')
 
-      //delete
+    //delete
 
-      let tdDelete = document.createElement('td')
-      let delButton = document.createElement('button')
-      delButton.className = "btn btn-danger"
-      delButton.innerHTML = '<i class="bi bi-trash3-fill"></i>'
-      setDelEvent(delButton, employee.id)
-      tdDelete.appendChild(delButton)
+    let tdDelete = document.createElement('td')
+    let delButton = document.createElement('button')
+    delButton.className = "btn btn-danger"
+    delButton.innerHTML = '<i class="bi bi-trash3-fill"></i>'
+    setDelEvent(delButton, employee.id)
+    tdDelete.appendChild(delButton)
 
-      // update
-      let tdEdit = document.createElement('td')
-      let editButton = document.createElement('button')
-      editButton.className = "btn btn-secondary"
-      editButton.innerHTML = '<i class="bi bi-pencil-fill"></i>'
+    // edit
 
-      setEditEvent(editButton, employee)
-      tdEdit.appendChild(editButton)
+    let tdEdit = document.createElement('td')
+    let editButton = document.createElement('button')
+    editButton.className = "btn btn-secondary"
+    editButton.innerHTML = '<i class="bi bi-pencil-fill"></i>'
 
-  
-      tableBody.appendChild(tr)
-      tr.appendChild(tdId)
-      tr.appendChild(tdName)
-      tr.appendChild(tdCity)
-      tr.appendChild(tdSalary)
-      tr.appendChild(tdEdit)
-      tr.appendChild(tdDelete)
-      tdId.textContent = employee.id
-      tdName.textContent = employee.name
-      tdCity.textContent = employee.city
-      tdSalary.textContent = employee.salary
+    editButton.setAttribute('data-bs-toggle', 'modal')
+    editButton.setAttribute('data-bs-target', '#editModal')
+
+    setEditEvent(editButton, employee)
+    tdEdit.appendChild(editButton)
+
+    tableBody.appendChild(tr)
+    tr.appendChild(tdId)
+    tr.appendChild(tdName)
+    tr.appendChild(tdCity)
+    tr.appendChild(tdSalary)
+    tr.appendChild(tdEdit)
+    tr.appendChild(tdDelete)
+    tdId.textContent = employee.id
+    tdName.textContent = employee.name
+    tdCity.textContent = employee.city
+    tdSalary.textContent = employee.salary
   });
 }
 
 function getEmployees() {
 
-  //delete existing table before render
+  //delete existing table before new render
   tableBody.innerHTML = ''
 
   let endpoint = 'employees'
@@ -75,12 +71,9 @@ function getEmployees() {
     });
 }
 
-
 getEmployees()
 
-
 //add
-
 
 function addEmployee(name, city, salary) {
 
@@ -105,10 +98,6 @@ function addEmployee(name, city, salary) {
         cityElem.value = ""
         salaryElem.value = ""
     })
-
-    // console.log("getEmployees");
-
-
 }
 
 //delete
@@ -144,8 +133,6 @@ function updateEmployee(id, name, city, salary) {
 }
 
 
-
-
 function setDelEvent(button, id) {
   // delButton.setAttribute('data-id', id);
   button.addEventListener('click', () => {
@@ -174,10 +161,10 @@ function setEditEvent(button, employee) {
 }
 
 addButton.addEventListener('click', () => {
-    const name = nameElem.value
-    const city = cityElem.value
-    const salary = salaryElem.value
-    addEmployee(name, city, salary)
+  const name = nameElem.value
+  const city = cityElem.value
+  const salary = salaryElem.value
+  addEmployee(name, city, salary)
 
 });
 
@@ -187,9 +174,6 @@ saveButton.addEventListener('click', () => {
   currentTr.childNodes[1].textContent = editNameElem.value
   currentTr.childNodes[2].textContent = editCityElem.value
   currentTr.childNodes[3].textContent = editSalaryElem.value
-
-  editForm.classList.remove("visible")
-  editForm.classList.add("invisible")
 
   //save to db
   updateEmployee(

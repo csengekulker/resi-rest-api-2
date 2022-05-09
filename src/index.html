@@ -13,11 +13,9 @@
     <div class="container">
       <h1>Resi</h1>
 
-              <!-- Button trigger modal -->
       <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#addModal">
         Új dolgozó felvétele
       </button>
-
 
       <table class="table table-striped">
           <thead>
@@ -32,9 +30,7 @@
           </tbody>
       </table>
 
-
     </div>
-
 
     <!-- addModal -->
     <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -58,13 +54,6 @@
                   <label for="salary" class="form-label">Fizetés</label>
                   <input type="text" id="salary" class="form-control">
               </div>
-                <!-- <button 
-                  type="button" 
-                  class="btn btn-secondary"  
-                  data-bs-toggle="modal" 
-                  data-bs-target="#addModal">
-                    Hozzáad
-                </button> -->
           </div>
           </div>
           <div class="modal-footer">
@@ -77,12 +66,6 @@
 
     <!-- editModal -->
 
-        <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal">
-      Módosítás
-    </button>
-
-    <!-- Modal -->
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -107,8 +90,8 @@
               </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezárás</button>
-            <button type="button" id="saveButton" class="btn btn-primary" data-bs-dismiss="modal">Mentés</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Bezárás</button>
+            <button type="button" id="saveButton" class="btn btn-secondary" data-bs-dismiss="modal">Adatok mentése</button>
           </div>
         </div>
       </div>

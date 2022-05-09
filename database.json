@@ -17,6 +17,12 @@
       "city": "Szolnok",
       "salary": "123456",
       "id": 3
+    },
+    {
+      "name": "Ernyős Valér",
+      "city": "Barnabás",
+      "salary": "1234",
+      "id": 4
     }
   ]
 }
